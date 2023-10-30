@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <style>
+    h1{color: rgb(59, 154, 171);}
+    h2{color: rgb(82, 80, 83);}
+    
+    
+    </style>
+    <!-- ⑥↓タイトルを変えてみよう -->
+    <title>第4回  ゲーム作り
+    </title>
+    <!-- ⑤スタイルシートの設定をしよう -->
+    <link rel="stylesheet" href="./css/style.css">
+
+    <!-- h1.htmlからある行をコピペしてくればOK -->
+</head>
+<body>
+    <body style="background-color:rgb(237, 239, 241);"></body>
+
+
+    <div style="background: #f6f7f8; box-shadow:#f6f7f8 0 0 10px 10px; margin:10px; font-size: 100%; padding: 20px;"><h1>〖ミニゲーム作り〗</h1></div>
+    <h2>＜ゲーム説明＞</h2>
+    1~30の中で、ランダムで正解の数字が１つ用意される。<br>
+    正解が出るまでその数字を探すゲームである。<br>
+    正解の数字を探し当てることができればゲームクリアとなる。<br>
+    <h2>＜ソースコード＞</h2>
+    <code>
+
+        <ol style="list-style:decimal-leading-zero outside;in-left:0;padding-left:36px;margin:0;background-color:#EEF;color:#000;">
+        <li style="background-color:#EFF;">import random</li>
+        <li style="background-color:#EEF;"></li>
+        <li style="background-color:#EFF;">def main():</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;answer = random.randint(1, 30)</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;attempts = 0</li>
+        <li style="background-color:#EEF;"></li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;print("1から30までの数字を当ててください。")</li>
+        <li style="background-color:#EEF;"></li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;while True:</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try:</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;guess = int(input("数字を入力してください: "))</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;attempts += 1</li>
+        <li style="background-color:#EFF;"></li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if guess == answer:</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(f"正解！{answer}を当てました。{attempts}回目でクリアしました！")</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("不正解です。もう一度試してみてください。")</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;except ValueError:</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("無効な入力です。整数を入力してください。")</li>
+        <li style="background-color:#EFF;"></li>
+        <li style="background-color:#EEF;">if __name__ == "__main__":</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;main()</li>
+        <li style="background-color:#EEF;"></li>
+        </ol></code>
+        <h2>＜感想＞</h2>
+        時間制限や回数制限、を設けても面白いと思った。<br>
+        数字を使ったものだとやはりブラックジャックも面白いと思う。
+</body>
+</html>
+
