@@ -17,8 +17,14 @@ else:
 #気温と画像を結び付けたいときはifでくくる　
 
 
-if temperature>=20:
-    print("20度以上です") #←ここに画像ingのやつ入れる.pcに画像を分かるように名前を付けて保存し、pythonの中のimaesに入れ、貼る
+if temperature < 15:
+    print("15度未満です")
+elif 15 <= temperature < 20:
+    print("15度以上20度未満です") #←ここに画像ingのやつ入れる.pcに画像を分かるように名前を付けて保存し、pythonの中のimaesに入れ、貼る
+elif 20 <= temperature < 25:
+    print("20 度以上25度未満です") #←ここに画像ingのやつ入れる.pcに画像を分かるように名前を付けて保存し、pythonの中のimaesに入れ、貼る
+elif 25 < temperature :
+    print("25度以上です")
 else:
-    print("20度未満です")
+    print("天気情報を取得できませんでした。")
 

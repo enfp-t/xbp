@@ -15,17 +15,17 @@ if response.status_code == 200:
     data = response.json()
     temperature = data['main']['temp']
 
-if 15 <= temperature < 20:
-     print(f"気温:", {temperature},"°Cです。１５度から２０度の範囲です。")
-     # 15~20度の範囲の場合、指定の画像Aを表示
-     image_url = "URL_TO_IMAGE_A"
+if temperature < 15:
+    print("15度未満です")
+elif 15 <= temperature < 20:
+    print("15度以上20度未満です") #←ここに画像ingのやつ入れる.pcに画像を分かるように名前を付けて保存し、pythonの中のimaesに入れ、貼る
 elif 20 <= temperature < 25:
-     print(f"気温:", {temperature},"°Cです。２０度から２５度の範囲です。")
-     # 20~25度の範囲の場合、指定の画像Bを表示
-     image_url = "URL_TO_IMAGE_B"
+    print("20 度以上25度未満です") #←ここに画像ingのやつ入れる.pcに画像を分かるように名前を付けて保存し、pythonの中のimaesに入れ、貼る
+elif 25 < temperature :
+    print("25度以上です")
+else:
+    print("条件に該当しない範囲です。")
 
-
-# else:
 
 #     print("気温情報を取得できませんでした。APIキーや場所を確認してください。")
 
