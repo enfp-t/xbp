@@ -23,9 +23,6 @@ elif 15 <= temperature < 20:
     print("15度以上20度未満です") #←ここに画像ingのやつ入れる.pcに画像を分かるように名前を付けて保存し、pythonの中のimaesに入れ、貼る
 elif 20 <= temperature < 25:
     print("20 度以上25度未満です") #←ここに画像ingのやつ入れる.pcに画像を分かるように名前を付けて保存し、pythonの中のimaesに入れ、貼る
-    File_path_A =
-    img = Image.open(File_path_A)
-    img.show()
 elif 25 < temperature :
     print("25度以上です")
 else:
