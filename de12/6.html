@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <style>
+    h1{color: rgb(59, 154, 171);}
+    h2{color: rgb(82, 80, 83);}
+    
+    
+    </style>
+    <!-- ⑥↓タイトルを変えてみよう -->
+    <title>第4回  pythonとライブラリ
+    </title>
+    <!-- ⑤スタイルシートの設定をしよう -->
+    <link rel="stylesheet" href="./css/style.css">
+
+<!-- h1.htmlからある行をコピペしてくればOK -->
+</head>
+<body>
+<body style="background-color:rgb(237, 239, 241);"></body>
+
+
+<div style="background: #f6f7f8; box-shadow:#f6f7f8 0 0 10px 10px; margin:10px; font-size: 100%; padding: 20px;"><h1>〖pythonによるコーディネイト〗</h1></div>
+
+    <!-- h1.htmlからある行をコピペしてくればOK -->
+</head>
+<body>
+    <h2>s説明</h2>
+    現在地を入力するとその場所の気温から一日のおすすめの服装を提案してくれる物を作れるのか気になったので、<br>
+    ChatGPTで検索をかけてみた。
+    <h2>ソースコード</h2>
+    <code>
+        <ol style="list-style:decimal-leading-zero outside;in-left:0;padding-left:36px;margin:0;background-color:#EEF;color:#000;">
+        <li style="background-color:#EFF;">import requests</li>
+        <li style="background-color:#EEF;"></li>
+        <li style="background-color:#EFF;">city = input("都市を教えてください。")</li>
+        <li style="background-color:#EEF;">API_KEY = "02c25dd9f56a16b6187f18e83731704d"  # あなたのAPI Keyを入力。</li>
+        <li style="background-color:#EFF;"></li>
+        <li style="background-color:#EEF;">api = f"http://api.openweathermap.org/data/2.5/weather?units=metric&amp;q={city}&amp;APPID={API_KEY}"</li>
+        <li style="background-color:#EFF;"></li>
+        <li style="background-color:#EEF;">response = requests.get(api)</li>
+        <li style="background-color:#EFF;"></li>
+        <li style="background-color:#EEF;">if response.status_code == 200:</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;data = response.json()</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;temperature = data['main']['temp']</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;print(f"{city}の現在の気温は{temperature}°Cです。")</li>
+        <li style="background-color:#EEF;">else:</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;print("天気情報を取得できませんでした。")</li>
+        <li style="background-color:#EEF;"></li>
+        <li style="background-color:#EFF;">#気温と画像を結び付けたいときはifでくくる　</li>
+        <li style="background-color:#EEF;"></li>
+        <li style="background-color:#EFF;"></li>
+        <li style="background-color:#EEF;">if temperature &lt; 15:</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;print("15度未満です")</li>
+        <li style="background-color:#EEF;">elif 15 &lt;= temperature &lt; 20:</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;print("15度以上20度未満です") #←ここに画像ingのやつ入れる.pcに画像を分かるように名前を付けて保存し、pythonの中のimaesに入れ、貼る</li>
+        <li style="background-color:#EEF;">elif 20 &lt;= temperature &lt; 25:</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;print("20 度以上25度未満です") #←ここに画像ingのやつ入れる.pcに画像を分かるように名前を付けて保存し、pythonの中のimaesに入れ、貼る</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;File_path_A =</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;img = Image.open(File_path_A)</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;img.show()</li>
+        <li style="background-color:#EFF;">elif 25 &lt; temperature :</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;print("25度以上です")</li>
+        <li style="background-color:#EFF;">else:</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;print("天気情報を取得できませんでした。")</li>
+        <li style="background-color:#EFF;"></li>
+        <li style="background-color:#EEF;"></li>
+        </ol></code>
+        <h2>＜感想＞</h2>
+        OpenWeatherMap APIを使い、入力した地の気温を特定し、５度間隔で降り分けるところまでしかできなかった。
+    </body>
+</html>
+
