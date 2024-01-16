@@ -2,12 +2,13 @@
 <html lang="jp">
 <head>
     <style>
-    h1{color-interpolation-filters: ;}
-    h2{color: rgb(255, 85, 0);}
+    h1{color: rgb(59, 154, 171);}
+    h2{color: rgb(82, 80, 83);}
+    
     
     </style>
     <!-- ⑥↓タイトルを変えてみよう -->
-    <title>第3回  移動観察
+    <title>第4回  ゲーム作り
     </title>
     <!-- ⑤スタイルシートの設定をしよう -->
     <link rel="stylesheet" href="./css/style.css">
@@ -15,59 +16,46 @@
     <!-- h1.htmlからある行をコピペしてくればOK -->
 </head>
 <body>
-    <body style="background-color:rgb(244, 241, 241);"></body>
+    <body style="background-color:rgb(237, 239, 241);"></body>
 
 
-    <div style="background: #fceff2; box-shadow: #fceff2 0 0 10px 10px; margin:10px; font-size: 100%; padding: 20px;"><h1>〖移動観察〗</h1></div>
+    <div style="background: #f6f7f8; box-shadow:#f6f7f8 0 0 10px 10px; margin:10px; font-size: 100%; padding: 20px;"><h1>〖ミニゲーム作り〗</h1></div>
+    <h2>＜ゲーム説明＞</h2>
+    1~30の中で、ランダムで正解の数字が１つ用意される。<br>
+    正解が出るまでその数字を探すゲームである。<br>
+    正解の数字を探し当てることができればゲームクリアとなる。<br>
+    <h2>＜ソースコード＞</h2>
+    <code>
 
-    <!-- 塊ごとにdivタグで区切るようにしましょう。 -->
-    <div>
-        <h2>調査概要</h2>
-        <ul>
-         <li><b>テーマ</b></li>
-         ➤街中の人はどんな帽子を身につけているだろう
-         <li><b>観察場所</b></li>
-         ➤桜木町駅、動く歩道
-         <li><b>観察日、時間</b></li>
-         ➤2023/10/17(火)14~15時
-        </ul>
-         
-        
-        <h2>調査結果</h2>
-        <ul>
-        <p><img src="./images/F6CE5904-134D-4644-933A-A63728ACF96A.jpeg" width="60%"></p>
-        <br>黒が全体の約1/3となった。圧倒的に黒が多いことが分かる。
-        <p><img src="./images/ADDE2DD5-DEF9-41AA-BD88-54B2A74983C3.jpeg" width="60%"></p>
-        <br>
-        種類としては、キャップが全体の64%を占める結果となった。
-        <p><img src="./images/67F882A4-14B9-42DE-B742-5D3E0131C654.jpeg" width="60%"></p>
-        <br>
-        性別による大きな偏りは感じられないが、年齢による差が見受けられた。<br>
-        グラフのように40~50歳とみられる方が多いことが分かる。
-        </ul>
-    
-        
-
-       <h2>考察</h2>
-       <div>
-       多かった色に茶が入っていたのは秋という季節が関係しているのだろうか？<br>
-       また上位にあがった色には年齢、性別、場面を選ばないようなものが多かったように感じた。<br>
-       この結果にはやはり時間帯、季節、場所が大きくかかわっていると思う。
-       </div>
-       <h2>まとめ・感想</h2>
-       <div>
-        予想としては1位黒2位白となると思っていたので、2位に茶がランクインしていて少し驚いた。<br>
-        考察で述べたように、結果には時間帯、季節、場所が大きく関わっていると思うので<br>
-        条件を変えて再度調査すると面白いと思った。
-       </div>
-</div>
-         <!-- ②↓に画像（imagesフォルダにあるtest.png）を挿入してみよう -->
-
-
-         <!-- ③↓に箇条書きをしてみよう -->
-
-         <!-- ④↓に外部リンクを作ってみよう -->
-
+        <ol style="list-style:decimal-leading-zero outside;in-left:0;padding-left:36px;margin:0;background-color:#EEF;color:#000;">
+        <li style="background-color:#EFF;">import random</li>
+        <li style="background-color:#EEF;"></li>
+        <li style="background-color:#EFF;">def main():</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;answer = random.randint(1, 30)</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;attempts = 0</li>
+        <li style="background-color:#EEF;"></li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;print("1から30までの数字を当ててください。")</li>
+        <li style="background-color:#EEF;"></li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;while True:</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try:</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;guess = int(input("数字を入力してください: "))</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;attempts += 1</li>
+        <li style="background-color:#EFF;"></li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if guess == answer:</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(f"正解！{answer}を当てました。{attempts}回目でクリアしました！")</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("不正解です。もう一度試してみてください。")</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;except ValueError:</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("無効な入力です。整数を入力してください。")</li>
+        <li style="background-color:#EFF;"></li>
+        <li style="background-color:#EEF;">if __name__ == "__main__":</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;main()</li>
+        <li style="background-color:#EEF;"></li>
+        </ol></code>
+        <h2>＜感想＞</h2>
+        時間制限や回数制限、を設けても面白いと思った。<br>
+        数字を使ったものだとやはりブラックジャックも面白いと思う。
 </body>
 </html>
 

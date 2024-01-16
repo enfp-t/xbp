@@ -8,54 +8,65 @@
     
     </style>
     <!-- ⑥↓タイトルを変えてみよう -->
-    <title>第4回  ゲーム作り
+    <title>第4回  pythonとライブラリ
     </title>
     <!-- ⑤スタイルシートの設定をしよう -->
     <link rel="stylesheet" href="./css/style.css">
 
+<!-- h1.htmlからある行をコピペしてくればOK -->
+</head>
+<body>
+<body style="background-color:rgb(237, 239, 241);"></body>
+
+
+<div style="background: #f6f7f8; box-shadow:#f6f7f8 0 0 10px 10px; margin:10px; font-size: 100%; padding: 20px;"><h1>〖pythonによるコーディネイト〗</h1></div>
+
     <!-- h1.htmlからある行をコピペしてくればOK -->
 </head>
 <body>
-    <body style="background-color:rgb(237, 239, 241);"></body>
-
-
-    <div style="background: #f6f7f8; box-shadow:#f6f7f8 0 0 10px 10px; margin:10px; font-size: 100%; padding: 20px;"><h1>〖ミニゲーム作り〗</h1></div>
-    <h2>＜ゲーム説明＞</h2>
-    1~30の中で、ランダムで正解の数字が１つ用意される。<br>
-    正解が出るまでその数字を探すゲームである。<br>
-    正解の数字を探し当てることができればゲームクリアとなる。<br>
-    <h2>＜ソースコード＞</h2>
+    <h2>s説明</h2>
+    現在地を入力するとその場所の気温から一日のおすすめの服装を提案してくれる物を作れるのか気になったので、<br>
+    ChatGPTで検索をかけてみた。
+    <h2>ソースコード</h2>
     <code>
-
         <ol style="list-style:decimal-leading-zero outside;in-left:0;padding-left:36px;margin:0;background-color:#EEF;color:#000;">
-        <li style="background-color:#EFF;">import random</li>
+        <li style="background-color:#EFF;">import requests</li>
         <li style="background-color:#EEF;"></li>
-        <li style="background-color:#EFF;">def main():</li>
-        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;answer = random.randint(1, 30)</li>
-        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;attempts = 0</li>
-        <li style="background-color:#EEF;"></li>
-        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;print("1から30までの数字を当ててください。")</li>
-        <li style="background-color:#EEF;"></li>
-        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;while True:</li>
-        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;try:</li>
-        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;guess = int(input("数字を入力してください: "))</li>
-        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;attempts += 1</li>
+        <li style="background-color:#EFF;">city = input("都市を教えてください。")</li>
+        <li style="background-color:#EEF;">API_KEY = "02c25dd9f56a16b6187f18e83731704d"  # あなたのAPI Keyを入力。</li>
         <li style="background-color:#EFF;"></li>
-        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;if guess == answer:</li>
-        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print(f"正解！{answer}を当てました。{attempts}回目でクリアしました！")</li>
-        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;break</li>
-        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;else:</li>
-        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("不正解です。もう一度試してみてください。")</li>
-        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;except ValueError:</li>
-        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;print("無効な入力です。整数を入力してください。")</li>
+        <li style="background-color:#EEF;">api = f"http://api.openweathermap.org/data/2.5/weather?units=metric&amp;q={city}&amp;APPID={API_KEY}"</li>
         <li style="background-color:#EFF;"></li>
-        <li style="background-color:#EEF;">if __name__ == "__main__":</li>
-        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;main()</li>
+        <li style="background-color:#EEF;">response = requests.get(api)</li>
+        <li style="background-color:#EFF;"></li>
+        <li style="background-color:#EEF;">if response.status_code == 200:</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;data = response.json()</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;temperature = data['main']['temp']</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;print(f"{city}の現在の気温は{temperature}°Cです。")</li>
+        <li style="background-color:#EEF;">else:</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;print("天気情報を取得できませんでした。")</li>
+        <li style="background-color:#EEF;"></li>
+        <li style="background-color:#EFF;">#気温と画像を結び付けたいときはifでくくる　</li>
+        <li style="background-color:#EEF;"></li>
+        <li style="background-color:#EFF;"></li>
+        <li style="background-color:#EEF;">if temperature &lt; 15:</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;print("15度未満です")</li>
+        <li style="background-color:#EEF;">elif 15 &lt;= temperature &lt; 20:</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;print("15度以上20度未満です") #←ここに画像ingのやつ入れる.pcに画像を分かるように名前を付けて保存し、pythonの中のimaesに入れ、貼る</li>
+        <li style="background-color:#EEF;">elif 20 &lt;= temperature &lt; 25:</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;print("20 度以上25度未満です") #←ここに画像ingのやつ入れる.pcに画像を分かるように名前を付けて保存し、pythonの中のimaesに入れ、貼る</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;File_path_A =</li>
+        <li style="background-color:#EFF;">&nbsp;&nbsp;&nbsp;&nbsp;img = Image.open(File_path_A)</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;img.show()</li>
+        <li style="background-color:#EFF;">elif 25 &lt; temperature :</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;print("25度以上です")</li>
+        <li style="background-color:#EFF;">else:</li>
+        <li style="background-color:#EEF;">&nbsp;&nbsp;&nbsp;&nbsp;print("天気情報を取得できませんでした。")</li>
+        <li style="background-color:#EFF;"></li>
         <li style="background-color:#EEF;"></li>
         </ol></code>
         <h2>＜感想＞</h2>
-        時間制限や回数制限、を設けても面白いと思った。<br>
-        数字を使ったものだとやはりブラックジャックも面白いと思う。
-</body>
+        OpenWeatherMap APIを使い、入力した地の気温を特定し、５度間隔で降り分けるところまでしかできなかった。
+    </body>
 </html>
 
